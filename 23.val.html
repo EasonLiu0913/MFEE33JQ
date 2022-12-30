@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>val</title>
+</head>
+<body>
+  <button class="check">Check</button>
+  <button class="set">set</button>
+  <input type="text" value="123"> 
+
+    <script src="./js/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+  
+    <script>
+      $('.check').click(function(){
+        console.log('input val:',$('input').val());
+      })
+      $('.set').click(function(){
+        const random = Math.random()*1000;
+        $('input').val(random)
+      })
+    </script>
+</body>
+</html>

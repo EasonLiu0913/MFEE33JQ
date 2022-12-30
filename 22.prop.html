@@ -10,7 +10,10 @@
 <button class="add">Add Prop</button>
 <button class="check">check Prop</button>
 <button class="cancel">cancel check</button>
-  <input type="checkbox" checked>
+<button class="getData">get data</button>
+  <input type="checkbox" checked data-sid="12" data-value="500" data-bs-target="#navbarSupportedContent" >
+
+  <div id="navbarSupportedContent"></div>
 
     <script src="./js/jquery-3.6.3.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
@@ -37,6 +40,16 @@
       $('.cancel').click(function(){
         const newValue = $('input').prop('checked')
         $('input').prop('checked', !newValue)
+      })
+
+      $('.getData').click(function(){
+        console.log('data-sid', $('input').data('sid'));
+        console.log('data-value', $('input').data('value'));
+        console.log('bs-target', $('input').data('bs-target'));
+
+
+        const idFromDataValue = $('input').data('bs-target');
+        $(idFromDataValue).css('width','100px').css('height','100px').css('background','pink')
       })
     </script>
 </body>
