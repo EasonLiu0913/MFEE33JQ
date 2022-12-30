@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html</title>
+
+    <style>
+      span{
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello <span>World</span></h1>
+
+    <div class="result">
+      Result
+    </div>
+
+    <script src="./js/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+
+    <script>
+      // console.log('h1 html:', $('h1').html());
+
+      // $("h1").html("Hi World");
+      console.log('h1 text:', $('h1').text());
+
+      // $("h1").text("Hi World");
+
+
+      const html = $('h1').html()
+      const text = $('h1').text()
+
+
+      $('.result').append(html)
+
+      // $('.result').html(html)
+      // $('.result').text()
+
+      // const h1 = document.createElement('h1')
+      // h1.innerHTML = html;
+      // const result = document.querySelector('.result');
+      // $(result).html(`<h1>${html}</h1><p>New Result<p>`)
+      // result.append(h1)
+
+      // $('.result').html(`<h1>${html}</h1><p>New Result<p>`)
+        // $('.result')[0].innerHTML = `<h1>${html}</h1><p>New Result<p>`
+
+
+    </script>
+  </body>
+</html>

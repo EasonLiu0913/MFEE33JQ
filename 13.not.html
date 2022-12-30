@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>not</title>
+  </head>
+  <body>
+    <div class="box a1">A1</div>
+    <div class="box a2">A2</div>
+    <div class="box a3">A3</div>
+
+      <script src="./js/jquery-3.6.3.js"></script>
+      <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+    
+      <script>
+        
+        $('div').not('.a1').css("background", "red");
+      </script>
+  </body>
+</html>

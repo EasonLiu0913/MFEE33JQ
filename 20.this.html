@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this</title>
+</head>
+<body>
+
+  <button>Click</button>
+
+  <script>
+    'use strict';
+    // ES5 function 函式 THIS 是變動的，大部分的情況下都是誰呼叫就是誰
+
+    // ES6 箭頭函式，this 其實有點像是作用域，在寫的當下就已決定
+    function a(){
+      setTimeout( ()=> {
+        console.log('this',this);
+      }, 1000);
+    }
+
+    a();
+
+    const obj = {
+      name:"obj",
+
+      a:function(){
+        var self = this;
+
+        setTimeout( ()=> {
+          console.log("obj's a this:", this);
+      }, 1000);
+      }
+    }
+
+    obj.a();
+
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', (event)=>{
+      console.log('event this', event.currentTarget);
+    })
+
+
+
+  </script>
+</body>
+</html>

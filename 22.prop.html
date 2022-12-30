@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prop</title>
+</head>
+<body>
+<button class="add">Add Prop</button>
+<button class="check">check Prop</button>
+<button class="cancel">cancel check</button>
+  <input type="checkbox" checked>
+
+    <script src="./js/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+  
+    <script>
+      $('input').click(function(){
+        // console.log('input clicked');
+
+
+        console.log('input checkbox attr:',$(this).attr('checked'));
+        console.log('input checkbox prop:',$(this).prop('checked'));
+      })
+
+
+      $('.add').click(function(){
+        console.log('add');
+        $('input').prop('EasonLiu',true)
+      })
+
+      $('.check').click(function(){
+        console.log('check:',$('input').prop('EasonLiu'));
+      })
+
+      $('.cancel').click(function(){
+        const newValue = $('input').prop('checked')
+        $('input').prop('checked', !newValue)
+      })
+    </script>
+</body>
+</html>

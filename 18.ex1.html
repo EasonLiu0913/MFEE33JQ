@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>ex1</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- 大圖 -->
+        <div class="col-12">
+          <img class="demo-img" class="w-100" style="height:400px;object-fit:contain;" src="./imgs/product1.jpg" alt="">
+        </div>
+      </div>
+      <div class="row">
+        <!-- 小圖 -->
+        <div class="col-12">
+          <div class="d-flex">
+            <div class="col"><img src="./imgs/product1.jpg" alt="" class="w-100"></div>
+            <div class="col"><img src="./imgs/product2.jpg" alt="" class="w-100"></div>
+            <div class="col"><img src="./imgs/product3.jpg" alt="" class="w-100"></div>
+            <div class="col"><img src="./imgs/product4.jpg" alt="" class="w-100"></div>
+            <div class="col"><img src="./imgs/product5.jpg" alt="" class="w-100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+
+    <script>
+
+      // const wrap = document.querySelector('.wrap')
+
+      // wrap.addEventListener('click',function(e){
+      //   console.log('wrap click',$(e.target).attr('src'));
+      // })
+
+
+      //   const imgs = document.querySelectorAll('img');
+      //   console.log('imgs',imgs);
+      //  for(let i = 0 ; i < imgs.length ; i ++){
+      //   imgs[i].addEventListener('click',function(){
+      //     console.log('this',this);
+      //   })
+      //  }
+
+      // IIFE 立即執行函式
+      // (function (){
+      //   console.log('hi');
+      // })()
+
+      // function add (x, y){
+      //   console.log('add function');
+      //   // console.log('result:', x+y );
+
+      //   return x+y;
+      // }
+
+      // const result = add(4,3)
+
+      // console.log('result',result);
+
+      $('img').click(function (e){
+      // event.target VS event.currentTarget
+
+        // 1.得到小圖的 src
+        console.log('img src:', $(e.target).attr('src'));
+        const imgSrc = $(e.target).attr('src');
+
+        // 2.修改大圖的 src, 變成被點擊的小圖的 src
+        $('.demo-img').attr('src', imgSrc)
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>async</title>
+  </head>
+  <body>
+    <script>
+      // function a(){
+      //   const randomTime = Math.random()*1000;
+
+      //   setTimeout(() => {
+      //     console.log('a');
+
+      //     b();
+
+      //   }, randomTime);
+
+      // }
+
+      // function b(){
+      //   const randomTime = Math.random()*1000;
+      //   setTimeout(() => {
+      //     console.log('b');
+
+      //     c();
+      //   }, randomTime);
+      // }
+
+      // function c(){
+      //   const randomTime = Math.random()*1000;
+      //   setTimeout(() => {
+      //     console.log('c');
+      //   }, randomTime);
+      // }
+
+      // 需要非同步來處理，讓程式按照我們想要的順序執行
+
+      // ES5 callback function 回呼函式
+
+      //  a()
+
+      //  function first(callback){
+
+      //   setTimeout(() => {
+      //     console.log('first');
+
+      //     callback();
+      //   }, 5000);
+      //  }
+
+      //  function sec (cb){
+      //   setTimeout(() => {
+      //     console.log('sec');
+      //   }, 1000);
+      //  }
+
+      //  first(sec)
+
+      // ES6 新增 Promise 物件 來改善非同步寫法的問題
+
+      // 如果女朋友打電話來請我幫她訂餐廳，我在上班，但我承諾她我忙完一定會做
+
+      const order = function () {
+        return new Promise((resolve, reject) => {
+          if (true) {
+            resolve("Yes");
+          } else {
+            reject("no");
+          }
+        });
+      };
+
+      // order()
+      // .then(function (result) {
+      //   console.log("result", result);
+
+      //   return result;
+      // })
+      // .then(function(result){
+
+      //   const newResult = result + ', I got it.'
+      //   console.log('newResult',newResult);
+      // })
+      // .catch(function(error){
+      //   console.log('error msg:',error);
+      // })
+
+      
+
+
+      // try{
+
+      // }
+
+      // catch{
+
+      // }
+
+
+      function login(username,userpassword){
+
+        // setTimeout(() => {
+        //   return true;
+        // }, 3000);
+        return new Promise((resolve,reject)=>{
+          setTimeout(() => {
+            console.log('login');
+            resolve(true)
+          }, 3000);
+        })
+      }
+
+        async function doLoginAndCheck(){
+          console.log('doLoginAndCheck()');
+          const loginResult1 = await login1('Jhon','123456');
+          // const loginResult2 = await login2(loginResult1);
+          // const loginResult3 = await login3(loginResult2);
+          // const loginResult4 = await login4(loginResult3);
+
+          console.log('loginResult',loginResult);
+
+          if(loginResult){
+            console.log('loginResult');
+          }
+
+          // check();
+
+        }
+
+
+        doLoginAndCheck()
+
+
+
+
+    </script>
+  </body>
+</html>
