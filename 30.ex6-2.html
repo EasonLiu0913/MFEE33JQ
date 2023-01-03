@@ -15,13 +15,16 @@
       overflow: hidden;
     }
 
-    .slider li{
-      opacity: 0;
+    .slider{
+      width: 4000px;
+      transform: translateX(0px);
       transition: .5s;
     }
 
-    .slider li:nth-child(1){
-      opacity: 1;
+    .slider li{
+      /* width: 800px; */
+      /* flex-shrink: 0; */
+      transition: .5s;
     }
 
     img{
@@ -49,12 +52,12 @@
 </head>
 <body>
   <div class="wrap position-relative">
-    <ul class="slider list-unstyled position-relative">
-      <li class=" position-absolute"><img src="./imgs/slide1.jpg" alt=""></li>
-      <li class=" position-absolute"><img src="./imgs/slide2.jpg" alt=""></li>
-      <li class=" position-absolute"><img src="./imgs/slide3.jpg" alt=""></li>
-      <li class=" position-absolute"><img src="./imgs/slide4.jpg" alt=""></li>
-      <li class=" position-absolute"><img src="./imgs/slide5.jpg" alt=""></li>
+    <ul class="slider list-unstyled d-flex">
+      <li class=""><img src="./imgs/slide1.jpg" alt=""></li>
+      <li class=""><img src="./imgs/slide2.jpg" alt=""></li>
+      <li class=""><img src="./imgs/slide3.jpg" alt=""></li>
+      <li class=""><img src="./imgs/slide4.jpg" alt=""></li>
+      <li class=""><img src="./imgs/slide5.jpg" alt=""></li>
     </ul>
 
     <ul class="slider-dots list-unstyled d-flex w-100 justify-content-center">
@@ -76,8 +79,11 @@
         const dotsIndex = $(this).index();
 
         // 1.改 index 那個 LI 的透明度
-        $('.slider li').eq(dotsIndex).css('opacity',1).siblings().css('opacity',0)
+        // $('.slider li').eq(dotsIndex).css('opacity',1).siblings().css('opacity',0)
 
+        // 1.改 slider 的 transform translateX(???)
+        const movement = dotsIndex * -800;
+        $('.slider').css('transform',`translateX(${movement}px)`)
 
         // 2.修改 dots li 白色
         $('.slider-dots li').eq(dotsIndex).css('background-color', '#fff').siblings().css('background-color', 'transparent')
