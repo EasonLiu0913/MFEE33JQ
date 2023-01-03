@@ -35,11 +35,32 @@
     <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
   
     <script>
-      $('form').submit(function(){
+      $('form').submit(function(event){
+        event.preventDefault();
+        console.log('event',event);
         console.log('form submit');
-
         console.log('useremail:', $('#exampleInputEmail1').val());
       })
+
+      $('input').focus(function(){
+        console.log('input focus');
+      })
+      $('input').blur(function(){
+        console.log('input blur');
+      })
+      $('input').change(function(){
+        console.log('input change');
+      })
+
+      $('input').on('input',function(){
+        console.log('jQuery', $(this).val());
+      })
+
+      // const emailInput = document.querySelector('#exampleInputEmail1')
+
+      // emailInput.addEventListener('input', function(){
+      //   console.log('emailInput change');
+      // })
     </script>
 </body>
 </html>
