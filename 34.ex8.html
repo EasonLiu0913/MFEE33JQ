@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex8</title>
+  <style>
+    body{
+      margin: 0;
+      height: 3000px;
+      transition: .5s;
+    }
+
+    .wrap{
+      background-color: #ccc;
+      width: 100%;
+      height: 50px;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .box{
+      width: 0%;
+      height: 100%;
+      background-color: pink;
+    }
+
+    .box2{
+      opacity: 0;
+      transform: translateX(500px);
+      transition: 4s;
+    }
+
+    section{
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box"></div>
+  </div>
+
+  <section></section>
+  <section></section>
+
+  <div class="box2">
+    <img src="./imgs/3.png" alt="">
+  </div>
+
+  <section></section>
+  <section></section>
+  <section></section>
+
+
+    <script src="./js/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+  
+    <script>
+      
+      $(window).scroll(function(){
+        console.log("scrollTop:", $(window).scrollTop());
+        // console.log("body Height:", $('body').height());
+        // console.log("body Height -WINDOW:", ($('body').height() - $(window).height()));
+
+        let percentage = $(window).scrollTop() / ($('body').height() - $(window).height())
+        // console.log('percentage',percentage * 100 +'%');
+        $('.box').css('width', percentage * 100 +'%')
+
+
+        // if(percentage > 0.50){
+        if($(window).scrollTop() >= 556){
+          $('body').css('background','orange')
+          $('.box2').css('opacity',1).css('transform', 'translateX(0)')
+        }
+        else{
+          $('body').css('background','transparent')
+          $('.box2').css('opacity',0).css('transform', 'translateX(500px)')
+        }
+      })
+    </script>
+</body>
+</html>

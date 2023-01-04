@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex2</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+          <style>
+            .box{
+              height: 100px;
+            }
+          </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-3 autobg box">box1</div>
+      <div class="col-3 autobg box">box2</div>
+      <div class="col-3 autobg box">box3</div>
+      <div class="col-3 autobg box">box4</div>
+      <div class="col-3 autobg box">box5</div>
+      <div class="col-3 autobg box">box6</div>
+      <div class="col-3 autobg box">box7</div>
+      <div class="col-3 autobg box">box8</div>
+      <div class="col-3 autobg box">box9</div>
+      <div class="col-3 autobg box">box10</div>
+      <div class="col-3 autobg box">box11</div>
+      <div class="col-3 autobg box">box12</div>
+    </div>
+  </div>
+
+
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+  <script>
+
+   function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+  }
+  
+  function getRBGA() {
+      return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+  }
+  
+  const elements = document.querySelectorAll('.autobg');
+  const myBGArray = [];
+  Array.from(elements).forEach((element, index) => {
+    const myBG = getRBGA();
+    myBGArray.push(myBG)
+    element.style.backgroundImage = myBG;
+
+  });
+  
+  // $('.autobg').each(function (index, currentElement) {
+  //     currentElement.style.backgroundImage = getRBGA();
+  // });
+  
+  </script>
+
+
+
+  <script src="./js/jquery-3.6.3.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+
+  <script>
+    $('.box').click(function(){
+      console.log('box click', $(this));
+      console.log('box index', $(this).index());
+
+      $(this).css('background','red').nextAll().css('background','lightblue')
+
+      for(let i = 0 ; i < $(this).index(); i ++){
+        elements[i].style.background = myBGArray[i]
+      }
+
+    })
+
+  </script>
+</body>
+</html>

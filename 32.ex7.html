@@ -7,7 +7,7 @@
   <title>ex7</title>
 </head>
 <body>
-  
+
   <form action="">
 
     <select name="city" id="city">
@@ -21,6 +21,7 @@
       <option value="0">七堵區</option>
       <option value="1">中正區</option>
       <option value="2">暖暖區</option>
+      <option value="3">八堵區</option>
     </select>
   </form>
 
@@ -30,10 +31,64 @@
   
     <script>
         let districtArray = [
-       ['七堵', '中正', '暖暖'],
-       ['中正', '大安', '信義'],
+       ['七堵', '中正', '暖暖', '八堵'],
+       ['中正', '大安', '信義', '中山'],
        ['蘆洲', '三重', '新店'],
      ];
+
+     $('#city').change(function(){
+      // console.log('hi', $(this).val());
+      const cityValue = $(this).val();
+
+      console.log('data:',districtArray[cityValue]);
+      const districtData = districtArray[cityValue];
+
+      // $('#district option').eq(0).text(districtData[0] + '區')
+      // $('#district option').eq(1).text(districtData[1]+ '區')
+      // $('#district option').eq(2).text(districtData[2]+ '區')
+
+
+      // 迴圈1
+      // for(let i =0; i < 3; i ++){
+      //   $('#district option').eq(i).text(districtData[i]+ '區')
+      // }
+
+      // 2.用陣列的資料跑回圈，forEach 是同步的，沒有 return 值
+      // const forEachValue =  districtData.forEach(function(item, index){
+      //   console.log('forEach item',item);
+      //   console.log('forEach index',index);
+
+      //   // $('#district option').eq(index).text(districtData[index]+ '區')
+      //   $('#district option').eq(index).text(item+ '區')
+
+      //   return item;
+      // })
+
+      // console.log('forEachValue',forEachValue);
+
+        
+
+
+      $('#district').empty()
+
+
+      $(districtData).each(function(index, item){        
+        $('#district').append(`<option value="${index}">${item}區</option>`)
+      })
+
+      // map 是非同步的，有 return 值
+      // const mapValue = districtData.map(function(item, index){
+      //   console.log('map item',item);
+      //   console.log('map index',index);
+
+      //   $('#district option').eq(index).text(item+ '區')
+
+      //   return index;
+      // })
+
+      // console.log('mapValue',mapValue);
+
+     })
 
     </script>
 </body>
