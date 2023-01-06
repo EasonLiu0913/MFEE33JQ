@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>add class</title>
+  <style>
+    .wrap{
+      display: flex;
+    }
+
+    .box{
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+    }
+
+    .box.active{
+      background: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box box1">box1</div>
+    <div class="box box2">box2</div>
+    <div class="box box3">box3</div>
+    <div class="box box4">box4</div>
+    <div class="box box5">box5</div>
+    <div class="box box6">box6</div>
+  </div>
+
+    <script src="./js/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+  
+    <script>
+      $('.box').click(function(){
+        // console.log('box');
+        // $(this).addClass('active').siblings().removeClass('active')
+
+        // $(this).toggleClass('active');
+
+        console.log('hasClass:', $(this).hasClass('active'));
+
+        if($(this).hasClass('active')){
+          $(this).removeClass('active')
+        }
+        else{
+          $(this).addClass('active')
+        }
+      })
+    </script>
+</body>
+</html>

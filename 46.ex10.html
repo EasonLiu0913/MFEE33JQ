@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex10</title>
+    <style>
+      .btns {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .font-S{
+        font-size: .8rem;
+      }
+      .font-M{
+        font-size: 1rem;
+      }
+      .font-L{
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btns">
+      <button>S</button>
+      <button>M</button>
+      <button>L</button>
+    </div>
+
+    <h2>jQuery</h2>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam fugiat
+      natus velit ratione voluptatibus debitis neque alias quasi voluptatum,
+      unde odio nam reiciendis, aperiam deserunt veniam, doloremque ipsam
+      quaerat architecto?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam fugiat
+      natus velit ratione voluptatibus debitis neque alias quasi voluptatum,
+      unde odio nam reiciendis, aperiam deserunt veniam, doloremque ipsam
+      quaerat architecto?
+    </p>
+
+    <script src="./js/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+
+    <script>
+      $(".btns button").click(function () {
+        // console.log("btn click", $(this).is(':contains("S")'));
+
+        if ($(this).is(':contains("S")')) {
+          $('p').removeClass('font-M font-L')
+          $('p').addClass('font-S')
+        }
+
+        if ($(this).is(':contains("M")')) {
+          $('p').removeClass('font-S font-L')
+          $('p').addClass('font-M')
+        }
+
+        if ($(this).is(':contains("L")')) {
+          $('p').removeClass('font-M font-S')
+          $('p').addClass('font-L')
+        }
+      });
+    </script>
+  </body>
+</html>

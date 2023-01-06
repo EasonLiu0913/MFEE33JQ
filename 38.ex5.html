@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex5</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <table class=" table table-bordered">
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            Elon Musk
+          </td>
+          <td>
+            09123456789
+          </td>
+          <td>elonmusk@gmail.com</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            Elon Musk
+          </td>
+          <td>
+            09123456789
+          </td>
+          <td>elonmusk@gmail.com</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            Elon Musk
+          </td>
+          <td>
+            09123456789
+          </td>
+          <td>elonmusk@gmail.com</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            Elon Musk
+          </td>
+          <td>
+            09123456789
+          </td>
+          <td>elonmusk@gmail.com</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            Elon Musk
+          </td>
+          <td>
+            09123456789
+          </td>
+          <td>elonmusk@gmail.com</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            Elon Musk
+          </td>
+          <td>
+            09123456789
+          </td>
+          <td>elonmusk@gmail.com</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+    <script src="./js/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+  
+    <script>
+      $('input').click(function(){
+        // console.log('input click',$(this).prop('checked'));
+        // console.log('input background',$(this).closest('tr').css('background-color'));
+
+        // if($(this).closest('tr').css('background-color') === 'rgb(173, 216, 230)'){
+        //   $(this).closest('tr').css('background','transparent')
+        // }
+        // else{
+        //   $(this).closest('tr').css('background','lightblue')
+        // }
+
+        if($(this).prop('checked')){
+          $(this).closest('tr').css('background','lightblue')
+        }
+        else{
+          $(this).closest('tr').css('background','transparent')
+        }
+
+        console.log('checked:', $('input:checked'));
+
+        // $('input').closest('tr').css('background','transparent')
+        // $('input:checked').closest('tr').css('background','lightblue')
+
+      })
+    </script>
+  
+</body>
+</html>

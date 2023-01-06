@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset</title>
+    <style>
+      body{
+        margin: 0;
+      }
+      
+      .wrap{
+        position: relative;
+        border: 1px solid #000;
+      }
+
+      .box{
+        width: 200px;
+        height: 200px;
+        background-color: #faf;
+        /* margin-left: 200px; */
+        transition: .5s;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+
+      section{
+        height: 800px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>sec1</section>
+    <section>sec2</section>
+    <div class="wrap">
+      <div class="wrap2">
+        <div class="box"></div>
+      </div>
+    </div>
+    <section></section>
+
+
+      <script src="./js/jquery-3.6.3.js"></script>
+      <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+    
+      <script>
+
+        console.log('position:', $('.box').position());
+        console.log('position:', $('.box').position().top);
+        // console.log('offset:',$('.box').offset());
+        // console.log('offset top:',$('.box').offset().top);
+
+
+        // $(window).scroll(function(){
+        //   console.log('scrollTop',$(window).scrollTop());
+
+        //   if($(window).scrollTop() >= $('.box').offset().top - ($(window).height() * 1 / 2)){
+        //     $('.box').css('background','red')
+        //   }
+        //   else{
+        //     $('.box').css('background','#faf')
+        //   }
+        // })
+      </script>
+  </body>
+</html>

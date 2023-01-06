@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+          <style>
+            .wrap{
+              width: 800px;
+              height: 400px;
+              background-color: #ccc;
+              margin: auto;
+              position: relative;
+            }
+
+            .box{
+              width: 100px;
+              height: 100px;
+              background-color: lightblue;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+          </style>
+</head>
+<body>
+  <button class="reset">Reset</button>
+  <div class="wrap">
+    <div class="box"></div>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-secondary">
+      <i class="fa-solid fa-caret-up"></i>
+    </button>
+  </div>
+
+  <div class="text-center">
+    <button id="left" class="btn btn-secondary me-4">
+      <i class="fa-solid fa-caret-left"></i>
+    </button>
+    <button id="right" class="btn btn-secondary">
+      <i class="fa-solid fa-caret-right"></i>
+    </button>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-secondary">
+      <i class="fa-solid fa-caret-down"></i>
+    </button>
+  </div>
+
+
+    <script src="./js/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+  
+    <script>
+      let movement = 135;
+      const maxLeftNum = $('.wrap').width() - $('.box').width() - movement ;
+      const maxTopNum = $('.wrap').height() - $('.box').height() - movement ;
+      let boxLeft= 0;
+      let boxTop = 0;
+      // console.log('movement type:', typeof movement);
+
+
+      $('.reset').click(function(){
+        movement = 100;
+        boxLeft = 0;
+        boxTop = 0;
+        move()
+      })
+
+      // console.log($('.wrap').width());
+      $('#right').click(function(){
+
+        if( parseInt($('.box').css('left')) < maxLeftNum ){
+          boxLeft += movement;
+          move()
+          // move('left','+=')
+        }
+      })
+
+      $('#left').click(function(){
+        if(parseInt($('.box').css('left')) >= movement){
+          // move('left','-=')
+          boxLeft -= movement;
+          move()
+        }
+      })
+
+      function move(){
+        // $('.box').css(cssAttribue,`${direction}${movement}`)
+
+        // boxLeft = $('.box').css('left')
+
+
+        $('.box').css({
+          left: boxLeft,
+          top:boxTop
+        })
+      }
+
+      $(document).keydown(function(e){
+        console.log('event',e.keyCode);
+        if(e.keyCode === 39){
+          // 向右
+          if( parseInt($('.box').css('left')) < maxLeftNum ){
+            move('left','+=')
+          }
+        }
+
+        if(e.keyCode === 37){
+          // 向左
+          if(parseInt($('.box').css('left')) >= movement){
+          move('left','-=')
+        }
+        }
+        
+        
+      })
+
+    </script>
+
+</body>
+</html>

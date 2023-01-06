@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex11</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .demo-area{
+        background-color: #ccc;
+        min-height: 400px;
+      }
+
+      .color-selector-area{
+        background-color: bisque;
+      }
+
+      .color-selector{
+        width: 100%;
+        aspect-ratio: 1/1;
+        background-color: brown;
+        margin-bottom: 10px;
+        border-radius: 50%;
+      }
+
+      .color-selector-area .col-3:nth-child(1) .color-selector {
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6 demo-area"></div>
+
+        <div class="col-6 color-selector-area">
+          <div class="row">
+            <!-- <div class="col-3">
+              <div class="color-selector"></div>
+            </div>
+            <div class="col-3">
+              <div class="color-selector"></div>
+            </div>
+            <div class="col-3">
+              <div class="color-selector"></div>
+            </div>
+            <div class="col-3">
+              <div class="color-selector"></div>
+            </div>
+            <div class="col-3">
+              <div class="color-selector"></div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <script src="./js/jquery-3.6.3.js"></script>
+      <!-- <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> -->
+    
+      <script>
+        const colorArray = ['red','yellow','green','pink']
+
+        colorArray.map((item)=>{
+          $('.color-selector-area .row').append(`<div class="col-3">
+              <div class="color-selector" style="background-color:${item}"></div>
+            </div>`)
+        })
+
+        $('.color-selector-area').on('click', '.color-selector',function(){
+          console.log('color click', $(this).css('background-color'));
+
+          const colorBG = $(this).css('background-color');
+          $('.demo-area').css('background-color', colorBG)
+        })
+      </script>
+  </body>
+</html>
